@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bmi_app/constants/constants.dart';
 
 class LeftShape extends StatelessWidget {
   const LeftShape({super.key, this.width = 0.0});
@@ -17,7 +18,8 @@ class LeftShape extends StatelessWidget {
               topRight: Radius.circular(30.0),
               bottomRight: Radius.circular(30.0),
             ),
-            color: Colors.green,
+            color: magentaColor,
+            // color: Colors.green,
           ),
         ),
       ],

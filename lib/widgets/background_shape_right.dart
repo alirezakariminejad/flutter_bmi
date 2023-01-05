@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bmi_app/constants/constants.dart';
 
 class RightShape extends StatelessWidget {
   const RightShape({super.key, this.width = 0.0});
@@ -17,7 +18,8 @@ class RightShape extends StatelessWidget {
               topLeft: Radius.circular(30.0),
               bottomLeft: Radius.circular(30.0),
             ),
-            color: Colors.red,
+            color: rubyColor,
+            // color: Colors.red,
           ),
         ),
       ],
