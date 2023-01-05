@@ -15,12 +15,17 @@ class Application extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'dana'),
       home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'BMI خودت رو محاسبه کن',
+            textDirection: TextDirection.rtl,
+          ),
+          centerTitle: true,
+        ),
         body: SafeArea(
           child: Column(
             children: [
-              RightShape(
-                width: 50.0,
-              ),
+              RightShape(width: 250.0),
               // SizedBox(height: 40.0),
               LeftShape(width: 150.0),
               // SizedBox(height: 40.0),
