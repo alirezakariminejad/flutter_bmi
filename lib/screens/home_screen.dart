@@ -17,6 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
   double resultBMI = 0;
   String resultText = "";
 
+  double greenLine = 100.0;
+  double redLine = 100.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,10 +102,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   if (resultBMI > 25) {
                     resultText = 'شما اضافه وزن دارید';
+                    redLine = 200;
+                    greenLine = 50;
                   } else if (resultBMI >= 18.5 && resultBMI < 25) {
                     resultText = 'وزن شما نرمال است';
+                    redLine = 50;
+                    greenLine = 200;
                   } else {
                     resultText = 'وزن شما کمتر از حد نرمال است';
+                    redLine = 50;
+                    greenLine = 50;
                   }
                 });
               },
@@ -142,8 +151,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(height: 40.0),
-            RightShape(width: 250.0),
-            LeftShape(width: 150.0),
+            RightShape(width: redLine),
+            LeftShape(width: greenLine),
           ],
         ),
       ),
