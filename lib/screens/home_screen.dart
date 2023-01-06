@@ -11,6 +11,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final weightController = TextEditingController();
+  final heightController = TextEditingController();
+
+  double resultBMI = 0;
+  String resultText = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,10 +45,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       width: 100.0,
                       child: TextField(
+                        controller: weightController,
                         style: TextStyle(
-                            fontSize: 24.0,
-                            // fontWeight: FontWeight.bold,
-                            color: rubyColor),
+                          fontSize: 24.0,
+                          // fontWeight: FontWeight.bold,
+                          color: rubyColor,
+                        ),
                         textDirection: TextDirection.ltr,
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
@@ -59,10 +67,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       width: 100.0,
                       child: TextField(
+                        controller: heightController,
                         style: TextStyle(
-                            fontSize: 24.0,
-                            // fontWeight: FontWeight.bold,
-                            color: rubyColor),
+                          fontSize: 24.0,
+                          // fontWeight: FontWeight.bold,
+                          color: rubyColor,
+                        ),
                         textDirection: TextDirection.ltr,
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
@@ -79,29 +89,57 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 40.0),
+            InkWell(
+              onTap: () {
+                final weight = double.parse(weightController.text);
+                final height = double.parse(heightController.text);
+
+                setState(() {
+                  resultBMI = weight / (height * height);
+
+                  if (resultBMI > 25) {
+                    resultText = 'شما اضافه وزن دارید';
+                  } else if (resultBMI >= 18.5 && resultBMI < 25) {
+                    resultText = 'وزن شما نرمال است';
+                  } else {
+                    resultText = 'وزن شما کمتر از حد نرمال است';
+                  }
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 30.0,
+                  right: 30.0,
+                  top: 15.0,
+                  bottom: 15.0,
+                ),
+                child: Text(
+                  'محاسبه کن',
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 60.0),
             Text(
-              'محاسبه کن',
+              '${resultBMI.toStringAsFixed(2)}',
               style: TextStyle(
-                  fontSize: 28.0,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
+                fontSize: 36.0,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             SizedBox(height: 15.0),
             Text(
-              '39',
+              '$resultText',
               style: TextStyle(
-                  fontSize: 28.0,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 40.0),
-            Text(
-              'شما اضافه وزن دارید',
-              style: TextStyle(
-                  fontSize: 28.0,
-                  color: redMaterialColor,
-                  fontWeight: FontWeight.bold),
+                fontSize: 28.0,
+                color: redMaterialColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             SizedBox(height: 40.0),
             RightShape(width: 250.0),
