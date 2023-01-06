@@ -18,7 +18,7 @@ class LeftShape extends StatelessWidget {
               topRight: Radius.circular(30.0),
               bottomRight: Radius.circular(30.0),
             ),
-            color: magentaColor,
+            color: greenMaterialColor,
             // color: Colors.green,
           ),
         ),

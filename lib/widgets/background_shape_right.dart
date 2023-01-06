@@ -18,7 +18,7 @@ class RightShape extends StatelessWidget {
               topLeft: Radius.circular(30.0),
               bottomLeft: Radius.circular(30.0),
             ),
-            color: rubyColor,
+            color: redMaterialColor,
             // color: Colors.red,
           ),
         ),
