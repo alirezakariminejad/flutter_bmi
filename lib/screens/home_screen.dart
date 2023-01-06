@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bmi_app/widgets/background_shape_left.dart';
+import 'package:flutter_bmi_app/widgets/background_shape_right.dart';
 import '../constants/constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,11 +14,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
           'BMI خودت رو محاسبه کن',
           textDirection: TextDirection.rtl,
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -74,14 +80,32 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             SizedBox(height: 40.0),
-            
-
-            // RightShape(width: 250.0),
-            // LeftShape(width: 150.0),
-            // // SizedBox(height: 40.0),
-            // RightShape(width: 100.0),
-            // // SizedBox(height: 40.0),
-            // LeftShape(width: 50.0),
+            Text(
+              'محاسبه کن',
+              style: TextStyle(
+                  fontSize: 28.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 15.0),
+            Text(
+              '39',
+              style: TextStyle(
+                  fontSize: 28.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 40.0),
+            Text(
+              'شما اضافه وزن دارید',
+              style: TextStyle(
+                  fontSize: 28.0,
+                  color: redMaterialColor,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 40.0),
+            RightShape(width: 250.0),
+            LeftShape(width: 150.0),
           ],
         ),
       ),
